@@ -1,37 +1,26 @@
 <?php
-
-class MahasiswaModel extends CI_Model {
-
-    var $npm     = '';
-    var $nama    = '';
-
-    function __construct()
-    {
-        // Call the Model constructor
-        parent::__construct();
-        $this->load->database();
-    }
-    
-    function get_mahasiswa_list()
-    {
-        $query = $this->db->get('mahasiswa');
-        return $query->result();
-    }
-
-    function get_mahasiswa($npm)
-    {
-        $query = $this->db->get_where('mahasiswa', array('npm' => $npm));
-        return $query->row();
-    }    
-    
-    function add_mahasiswa($data)
-    {
-        $this->db->insert('mahasiswa', $data);
-    }
-    
-    function delete_mahasiswa($npm)
-    {
-        $this->db->delete('mahasiswa', array('npm' => $npm));
-    }
+class Mahasiswamodel extends CI_Model {
+	public function getMahasiswaList() {
+		$query = $this->db->get('mahasiswa');
+		return $query->result();
+	}
+	
+	public function deleteMahasiswa($npm) {
+		$this->db->delete('mahasiswa', array('npm' => $npm));
+	}
+	
+	public function getMahasiswaDetail($npm) {
+		$query = $this->db->get_where('mahasiswa', array('npm' => $npm));
+		$result = $query->result();
+		return $result[0];
+	}
+	
+	public function addMahasiswa($npm, $nama) {
+		$data = array(
+			'npm' => $npm,
+			'nama' => $nama
+		);
+		$this->db->insert('mahasiswa', $data);
+	}
 }
 ?>

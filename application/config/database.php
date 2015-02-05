@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'mahasiswadb';
-$db['default']['password'] = 'mahasiswadb';
-$db['default']['database'] = 'mahasiswadb';
+$db['default']['username'] = 'MahasiswaDB2';
+$db['default']['password'] = 'MahasiswaDB2';
+$db['default']['database'] = 'MahasiswaDB2';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
